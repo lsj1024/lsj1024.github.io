@@ -122,6 +122,24 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2022/04/18/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/">
+										B树和B+树的区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+										Redis分布式锁的实现原理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2021/09/09/hello-world/">
 										hello-world
 									</a>
@@ -133,6 +151,15 @@ var _hmt = _hmt || [];
 								<li class="file">
 									<a href="/2021/11/04/%E4%BA%8B%E5%8A%A1/">
 										事务
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+										并发编程
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -154,6 +181,73 @@ var _hmt = _hmt || [];
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
+	
+		<div class="index-li">
+			<a href="/2022/04/18/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+				<h2 class="index-title">
+					Redis分布式锁的实现原理
+				</h2>
+				<div class="index-brief">
+					Redis分布式锁的实现原理目前基于Redis实现的分布式锁常用的框架是Redisson,它的使用比较简单，在项目中引入Redisson的依赖，然后基于Redis实现分布式锁的加锁与释放锁，如下所示：
+
+ 接下来我们就说一下Redisson这个框架对于Redis分布式锁的实现原理。
+Redis分布式
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2022-04-18</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2022/04/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+				<h2 class="index-title">
+					并发编程
+				</h2>
+				<div class="index-brief">
+					并发编程一.概念1.并发与并行你吃饭吃到一半，电话来了，你一直到吃完了以后才去接，这就说明你不支持并发也不支持并行。
+你吃饭吃到一半，电话来了，你停了下来接了电话，接完后继续吃饭，这说明你支持并发。
+你吃饭吃到一半，电话来了，你一边打电话一边吃饭，这说明你支持并行。
+并发的关键是你有处理多个任务的能
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2022-04-18</span>
+                    
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2022/04/18/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/">
+				<h2 class="index-title">
+					B树和B+树的区别
+				</h2>
+				<div class="index-brief">
+					一、B树和B+树的区别很明显，我们想向弄清楚原因就要知道B树和B+树的区别。为了不长篇大论。我们直接给出他们的形式总结他们的特点。
+1、B树
+B树是一种自平衡的搜索树，形式很简单：
+
+这就是一颗B-树。针对我们这个问题的最核心的特点如下：
+（1）多路，非二叉树
+（2）每个节点既保存索引，又保存数据
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2022-04-18</span>
+                    
+                            
+                    
+                </div>
+		</div>	
 	
 		<div class="index-li">
 			<a href="/2022/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">

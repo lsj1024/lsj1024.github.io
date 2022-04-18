@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		并发编程 | 
+	 
+	lsj的笔记
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "lsj1024.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">lsj的笔记</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/">
+										B树和B+树的区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+										Redis分布式锁的实现原理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/09/09/hello-world/">
+										hello-world
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/11/04/%E4%BA%8B%E5%8A%A1/">
+										事务
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2022/04/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+										计算机网络
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	并发编程
+</h1>
+<div class="article-meta">
+	
+	<span>lsj</span>
+	<span>2022-04-18 15:54:19</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h1><h2 id="一-概念"><a href="#一-概念" class="headerlink" title="一.概念"></a>一.概念</h2><h3 id="1-并发与并行"><a href="#1-并发与并行" class="headerlink" title="1.并发与并行"></a>1.并发与并行</h3><p>你吃饭吃到一半，电话来了，你一直到吃完了以后才去接，这就说明你不支持并发也不支持并行。</p>
+<p>你吃饭吃到一半，电话来了，你停了下来接了电话，接完后继续吃饭，这说明你支持并发。</p>
+<p>你吃饭吃到一半，电话来了，你一边打电话一边吃饭，这说明你支持并行。</p>
+<p>并发的关键是你有处理多个任务的能力，不一定要同时。</p>
+<p>并行的关键是你有同时处理多个任务的能力。</p>
+<p>所以我认为它们最关键的点就是：是否是『同时』。</p>
+<h3 id="2-死锁"><a href="#2-死锁" class="headerlink" title="2. 死锁"></a>2. 死锁</h3><p>一个死锁的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.lsj1024.thread;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 一个死锁的demo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lsj</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v1.0.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/11/28 16:48</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLockDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  String A = <span class="string">&quot;a&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  String B = <span class="string">&quot;b&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> DeadLockDemo().deadLock();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span>  <span class="keyword">void</span> <span class="title">deadLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (A) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.currentThread().sleep(<span class="number">2000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">synchronized</span> (B) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;thread1&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (B) &#123;</span><br><span class="line">                    <span class="keyword">synchronized</span> (A) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;thread2&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-线程的状态"><a href="#3-线程的状态" class="headerlink" title="3.线程的状态"></a>3.线程的状态</h3><p>（1）等待与阻塞的区别</p>
+<p>​    个人理解：两者没有直接的关联，是在锁的维度进行的区分。比如一下场景：</p>
+<p>​    在医院看病。正在诊室的病人此时处于运行状态。下一个被叫号的病人处于就绪状态。其他在诊室外等待的病人处于等待状态。在看医生时，需获取一些独一无二的资源。比如先去厕所做尿检。在厕所里争抢厕所的状态处于阻塞。</p>
+<p>​    等待是主动的，是主动在等时机成熟后 就去运行。</p>
+<p>​    阻塞是被动的。是要获取摸一个资源，被动阻止的状态</p>
+<h2 id="二-底层实现原理"><a href="#二-底层实现原理" class="headerlink" title="二.底层实现原理"></a>二.底层实现原理</h2><h3 id="1-volatile"><a href="#1-volatile" class="headerlink" title="1.volatile"></a>1.volatile</h3><p>​    volatile的作用是保证共享变量在其他线程的可见性，可以看成是轻量级的synchronized。可见性是指 当一个线程修改了该共享变量后，在其他线程能够获取到修改后的结果。</p>
+<p>​    其原理要从处理器架构说起。在多处理器的计算机架构中，处理器在处理数据时是将主内存的数据加载到寄存器中，在修改完后写回主内存。如果一个变量被volatile修饰，在java字节码转为汇编语言后，会在该变量前多一个lock前缀的指令。lock指令的含义有：</p>
+<p>​    （1）lock指令会引起当前处理器缓存回写到主内存</p>
+<p>​    （2）一个处理器缓存的回写会引起其他处理器的缓存失效</p>
+<p>​    基于这两点，用volatile修饰的变量 可以保证内存的可见性。</p>
+<h3 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2.synchronized"></a>2.synchronized</h3><p>​    synchronized通常被看做重量级锁。但在java1.7后，对synchronized做了优化，使用的锁升级的过程来管理锁。</p>
+<h3 id="（1）偏向锁"><a href="#（1）偏向锁" class="headerlink" title="（1）偏向锁"></a>（1）偏向锁</h3><p>​    经HotSpot作者研究发现，大多数情况下，锁不仅不存在竞争，而且总是由同一线程多次获得。基于此假想，提出了</p>
+<h3 id="（2）synchronized原理"><a href="#（2）synchronized原理" class="headerlink" title="（2）synchronized原理"></a>（2）synchronized原理</h3><p>​      synchronized是java提供的原子性内置锁，这种内置的并且使用者看不到的锁也被称为<strong>监视器锁</strong>，使用synchronized之后，会在编译之后在同步的代码块前后加上monitorenter和monitorexit字节码指令，他依赖操作系统底层互斥锁实现。他的作用主要就是实现原子性操作和解决共享变量的内存可见性问题。</p>
+<p>执行monitorenter指令时会尝试获取对象锁，如果对象没有被锁定或者已经获得了锁，锁的计数器+1。此时其他竞争锁的线程则会进入等待队列中。</p>
+<p>​    执行monitorexit指令时则会把计数器-1，当计数器值为0时，则锁释放，处于等待队列中的线程再继续竞争锁。</p>
+<p>​    synchronized是排它锁，当一个线程获得锁之后，其他线程必须等待该线程释放锁后才能获得锁，而且由于Java中的线程和操作系统原生线程是一一对应的，线程被阻塞或者唤醒时时会从用户态切换到内核态，这种转换非常消耗性能。</p>
+<p>​    从内存语义来说，加锁的过程会清除工作内存中的共享变量，再从主内存读取，而释放锁的过程则是将工作内存中的共享变量写回主内存。</p>
+<p>​    如果再深入到源码来说，synchronized实际上有两个队列waitSet和entryList。</p>
+<ol>
+<li>当多个线程进入同步代码块时，首先进入entryList</li>
+<li>有一个线程获取到monitor锁后，就赋值给当前线程，并且计数器+1</li>
+<li>如果线程调用wait方法，将释放锁，当前线程置为null，计数器-1，同时进入waitSet等待被唤醒，调用notify或者notifyAll之后又会进入entryList竞争锁</li>
+<li>如果线程执行完毕，同样释放锁，计数器-1，当前线程置为null</li>
+</ol>
+<p><img src="https://personal.lsj1024.cn/img/202204181556205.jpeg" alt="图片"></p>
+<h3 id="3-CAS"><a href="#3-CAS" class="headerlink" title="3.CAS"></a>3.CAS</h3><p>​    CAS（Compare And Swap）。顾名思义，表示比较并且替换。是乐观锁的一种实现。乐观锁认为，大多数情况下是不存在并发问题的，我在修改当前临界资源的时候一般情况下是没有其他线程一起来操作的。CAS在修改临界资源时，首先将原来的状态保存下来，在自己的工作线程内修改完后，往主内存回写时，会将操作对象现在的值与自己缓存的修改前的值进行比较，如果相等，表明没有其他线程来修改这个资源，直接提交到主内存。如果发现内存中的值与自己缓存下来的值不相等，表明有线程更改了这个资源，则放弃当前提交。进入自旋状态。所谓自旋，指的是再获取一次主内存中当前资源的最新值在自己的工作线程内进行更改，再进行一次CAS操作，直至成功。</p>
+<p><strong>CAS的缺点：</strong></p>
+<p><strong>1.CPU开销较大</strong></p>
+<p>在并发量比较高的情况下，如果许多线程反复尝试更新某一个变量，却又一直更新不成功，循环往复，会给CPU带来很大的压力。</p>
+<p><strong>2.不能保证代码块的原子性</strong></p>
+<p>CAS机制所保证的只是一个变量的原子性操作，而不能保证整个代码块的原子性。比如需要保证3个变量共同进行原子性的更新，就不得不使用Synchronized了。</p>
+<p>   因为它本身就只是一个锁住总线的原子交换操作啊。两个CAS操作之间并不能保证没有重入现象。</p>
+<p><strong>3.ABA问题</strong></p>
+<p>这是CAS机制最大的问题所在。</p>
+<h2 id="三-java并发基础"><a href="#三-java并发基础" class="headerlink" title="三.java并发基础"></a>三.java并发基础</h2><h3 id="1-wait与notify"><a href="#1-wait与notify" class="headerlink" title="1.wait与notify"></a>1.wait与notify</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.lsj1024.thread;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * wait 机制与notify机制</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 李少杰</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v1.0.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/12/12 16:29</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitNotifyDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object LOCK = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Boolean FLAG = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Thread waitThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> WaitThread(), <span class="string">&quot;waitThread&quot;</span>);</span><br><span class="line">        Thread notifyThread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> NotifyThread(), <span class="string">&quot;notifyThread&quot;</span>);</span><br><span class="line"></span><br><span class="line">        waitThread.start();</span><br><span class="line">        mySleep(<span class="number">5000</span>);</span><br><span class="line">        notifyThread.start();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (LOCK) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;wait 获取到了锁&quot;</span>);</span><br><span class="line">                <span class="keyword">while</span> (!FLAG) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;wait 不满足条件，继续等待&quot;</span>);</span><br><span class="line">                        <span class="comment">//TODO 表示进入LOCK对象的等待队列</span></span><br><span class="line">                        LOCK.wait();</span><br><span class="line">                        <span class="comment">//TODO wait()方法会将持有的锁释放，并将当前线程加入到对象的等待队列</span></span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;等待出错&quot;</span>);</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">&quot;wait 满足条件，开始处理！！!&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NotifyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (LOCK) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;notify 获取到了锁&quot;</span>);</span><br><span class="line">                FLAG = <span class="keyword">true</span>;</span><br><span class="line">                mySleep(<span class="number">1000</span> * <span class="number">30</span>);</span><br><span class="line">                <span class="comment">//TODO notifyAll() 是指将该对象所有等待队列的线程移到同步队列</span></span><br><span class="line">                LOCK.notifyAll();</span><br><span class="line">                mySleep(<span class="number">1000</span> * <span class="number">30</span>);</span><br><span class="line">                <span class="comment">//TODO  notify() 并不会释放锁，所以，在这步走完之后，waitThread 进入了阻塞队列</span></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;notify 条件修改完毕&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mySleep</span><span class="params">(Integer time)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(time);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;睡眠失败！&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-join"><a href="#2-join" class="headerlink" title="2. join"></a>2. join</h3><p>join的作用：让当前线程等待该线程执行后才运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Son s = <span class="keyword">new</span> Son();</span><br><span class="line">        s.start();</span><br><span class="line">        s.join();</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上面的例子，当主线程里调用子线程的join方法后，主线程会进入等待队列，当子线程执行完后，调用s.notifyAll()方法，通知所有等待在此线程对象上的线程。其原理还是使用了wait和notify机制。</p>
+<p>注意：此时主线程在子线程对象的等待队列里。</p>
+<h3 id="3-ThreadLocal"><a href="#3-ThreadLocal" class="headerlink" title="3.ThreadLocal"></a>3.ThreadLocal</h3><h4 id="（1）ThreadLocal是什么？"><a href="#（1）ThreadLocal是什么？" class="headerlink" title="（1）ThreadLocal是什么？"></a>（1）ThreadLocal是什么？</h4><p>个人理解：ThreadLocal，即线程对象。是java提供的可以附带在线程上传递的一个类map数据结构的类。在java.lang包下。key是ThreadLocal对象，value是任意对象。根据这个特性，可是利用ThreadLocal设置和获取绑定在当前线程上的任意对象。</p>
+<h4 id="（2）InheritThreadLocal"><a href="#（2）InheritThreadLocal" class="headerlink" title="（2）InheritThreadLocal"></a>（2）InheritThreadLocal</h4><p>ThreaLocal存在的问题：因为ThreadLocal是线程对象，只能针对当前线程绑定数据。在实际中，如果该线程创建了子线程，此时子线程并不能获取到父线程中绑定的数据。InheritThreadLocal解决了这个问题，子线程可以获取到父线程的ThreadLocal中的数据。相当于copy了一份父线程的线程对象数据到自己，子线程修改自己的ThreadLocal并不会影响到父线程和其他子线程。</p>
+<h4 id="（3）TransmittableThreadLocal"><a href="#（3）TransmittableThreadLocal" class="headerlink" title="（3）TransmittableThreadLocal"></a>（3）TransmittableThreadLocal</h4><p>需要注意的是，一个http请求打到服务器，服务器需要用一个线程来处理这条请求。因为频繁创建和销毁线程是非常耗资源的操作，在tomcat等服务器中（springboot集成了tomcat），对处理线程做了池化，也就是维护了一组线程池，用来处理http请求。<br><br>在线程池中，因为所有线程是复用的。此时InheritThreadLocal会存有上一个任务绑定的数据，这时的ThreadLocal的存在是没有意义的。其问题本质是：在线程池中，线程的ThreadLocal应该作用于线程执行时。<br><br>TransmittableThreadLocal是阿里巴巴提供解决此问题的开源类库。继承自InheritThreadLocal。其解决方案类似于在线程池任务执行时重新set一次ThreadLocal。</p>
+<h3 id="4-LOCK"><a href="#4-LOCK" class="headerlink" title="4.LOCK"></a>4.LOCK</h3><p>lock可以显式的定义锁。与synchronized 相比，他有几个synchronized没有的特性：</p>
+<p>1.可以尝试非阻塞方式获取到锁：当前线程获取锁，如果在该时刻没有其他线程获取到该锁，当前线程会马上获取到锁并持有。</p>
+<p>2.能够中断的获取锁：使用lock后，获取到锁的线程能够响应中断，在响应中断后，会抛出异常并且释放锁。</p>
+<p>3.能够超时获取锁：在指定时间内没有获取到锁后，会返回。</p>
+<h3 id="java中的锁"><a href="#java中的锁" class="headerlink" title="java中的锁"></a>java中的锁</h3><h2 id="四-java并发容器和框架"><a href="#四-java并发容器和框架" class="headerlink" title="四.java并发容器和框架"></a>四.java并发容器和框架</h2><h3 id="1-concurrentHashMap"><a href="#1-concurrentHashMap" class="headerlink" title="1.concurrentHashMap"></a>1.concurrentHashMap</h3><p>（1）传统容器存在的问题</p>
+<p>​    hashMap是线程不安全的容器，其底层数据结构使用了数组加链表的实现方式。当多线程场景下频繁对HashMap进行put操作时，此时因为有哈希碰撞的原因，势必形成链表数据结构。在链表中因为多线程更改next指针，会造成死循坏。从而造成cpu利用100%。</p>
+<p>（2）HashTable</p>
+<p>​    HashTable在底层使用了synchronized关键字。synchronized是重量级锁，尽管在后面synchronized有做优化。但因为HashTable使用synchronized来锁整个容器。这样就会造成众多线程同时争抢同一把锁，从而使得synchronized迅速升级为排他锁。</p>
+<p>（3）使用分段锁的concurrentHashMap</p>
+<p>​    如果使用同一把锁来锁整个容器，势必带来激烈的锁竞争。concurrentHashMap使用了分段锁技术，即 将容器分成很多段，每段有单独的锁来保证数据的同步性。在concurrentHashMap中，维护了两种数据结构-HashEntity和Segment。HashEntity是数据容器。Segment是锁容器，Segment是可重入锁（ReentranLock）的一种实现。concurrentHashMap也是使用了数组加链表的方式维护，维护了一个Segment数组，每个Segment对应一个HashEntity数组，HashEntity是链表数据结构。每个Segment守护着一个HashEntity数组的每个元素。当要对HashEntity链表进行操作时，首先需要获取到对应的Segment锁。</p>
+<p><img src="http://personal.lsj1024.cn/img/202204181041240.png" alt="image-20220314220623645"></p>
+<p>concurrentHashMap的数据结构：在concurrentHashMap中维护了一个Segment的hash表，Segment的大小在初始的时候就确定好了，不再进行扩容。每个Segment指向了一个HashEntry的hash表，相当于Segment指向了一个小的hashMap。这样就降低了锁的粒度。concurrentHashMap的构造函数中有三个参数：初始容量，负载因子，并发级别。这里的初始容量指的是所有的小的hash表加起来的容量，并发级别就是Segment数组的大小。负载因子是每个小的hash表中的负载因子。Segment继承了可重入锁，在set的时候，首先计算出key的hash值，在&amp; Segment.length -1 。这样就定位出了这个key归于那个Segment分段，进而找到它维护的hash表。然后再计算 一次hashcode，找到hash表中的idex后，在生成hashEntry的时候使用CAS加锁，使用ReentranLock对这个hash表进行加锁。这中间有一个自旋的过程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">While(tryLoack()) &#123;</span><br><span class="line"><span class="comment">// 生成hashEntry</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//自旋到一定次数（单核cpu1次，其他的64次）</span></span><br><span class="line">  lock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取到锁后，如果没有hash碰撞，直接put到数组，如果有hash碰撞，使用头插法插进第一个链表。</p>
+<p>需要注意的是，concurrentHashMap的默认初始值是16，并发等级也是16，这样算来，每个Segment只负责一个hashEntry，但规定每个Segment最少负责两个hashEntry。因此，初始状态下，concurrentHashMap的大小是32。</p>
+<h3 id="2-Lock与synchronize的区别"><a href="#2-Lock与synchronize的区别" class="headerlink" title="2.Lock与synchronize的区别"></a>2.Lock与synchronize的区别</h3><p>​    synchronize是隐式的获取锁，而lock是显式的获取锁。synchronize是用方便，但是缺乏灵活，比如，在获取A锁后，释放A锁的同时获取B锁。lock有synchronize没有的特性：</p>
+<ul>
+<li><p>尝试非阻塞的获取锁</p>
+</li>
+<li><p>能被中断的获取锁</p>
+</li>
+<li><p>超时获取锁</p>
+</li>
+</ul>
+<h3 id="3-ReentranLock"><a href="#3-ReentranLock" class="headerlink" title="3.ReentranLock"></a>3.ReentranLock</h3><p>​    可重入锁继承自AbstractQueuedSynchronizer 。顾名思义，可重入的意思是在已加锁的基础上还能继续加锁，但需要注意的是：加了几次锁，就要释放几次锁。是基于CLH队列来实现的。CLH队列：</p>
+<p><img src="http://personal.lsj1024.cn/img/202204181041809.png" alt="image-20220314235218416"></p>
+<p>​    </p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2022/04/18/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  Redis分布式锁的实现原理
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2022/04/18/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                B树和B+树的区别
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2021-<span id="footerYear"></span> 
+	<a href="/">lsj</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>

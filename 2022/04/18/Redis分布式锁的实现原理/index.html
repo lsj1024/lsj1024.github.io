@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Redis分布式锁的实现原理 | 
+	 
+	lsj的笔记
+	</title>
+	
+	<!-- keywords,description -->
+	 
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+
+
+	<!-- search -->
+	<script>
+		var searchEngine = "https://www.google.com/search?q=";
+		if(typeof searchEngine == "undefined" || searchEngine == null || searchEngine == ""){
+			searchEngine = "https://www.google.com/search?q=";
+		}
+		var homeHost = "lsj1024.github.io";
+		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
+			homeHost = window.location.host;
+		}
+	</script>
+
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3efe99c287df5a1d6f0d02d187e403c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<header id="header">
+    <a id="title" href="/" class="logo">lsj的笔记</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+	
+
+	
+
+		<li class="menu-item">
+			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
+				UidGenerator
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/wujun234" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="按回车全站搜索">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/">
+										B树和B+树的区别
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2022/04/18/Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+										Redis分布式锁的实现原理
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/09/09/hello-world/">
+										hello-world
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2021/11/04/%E4%BA%8B%E5%8A%A1/">
+										事务
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/04/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+										并发编程
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2022/03/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+										计算机网络
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	Redis分布式锁的实现原理
+</h1>
+<div class="article-meta">
+	
+	<span>lsj</span>
+	<span>2022-04-18 16:00:22</span>
+		<div id="article-categories">
+    
+		<span>Categories：</span>
+            
+    
+
+    
+		<span>Tags：</span>
+            
+    
+		</div>
+
+</div>
+
+<div id="article-content">
+	<h1 id="Redis分布式锁的实现原理"><a href="#Redis分布式锁的实现原理" class="headerlink" title="Redis分布式锁的实现原理"></a>Redis分布式锁的实现原理</h1><p>目前基于Redis实现的分布式锁常用的框架是<strong>Redisson</strong>,它的使用比较简单，在项目中引入Redisson的依赖，然后基于Redis实现分布式锁的加锁与释放锁，如下所示：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181559514.jpg" alt="img"></p>
+<p> 接下来我们就说一下Redisson这个框架对于Redis分布式锁的实现原理。</p>
+<h2 id="Redis分布式锁的底层原理"><a href="#Redis分布式锁的底层原理" class="headerlink" title="Redis分布式锁的底层原理"></a><strong>Redis分布式锁的底层原理</strong></h2><p> Redisson这个框架对Redis分布式锁的实现原理图如下：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181559611.jpg" alt="img"></p>
+<h3 id="加锁机制"><a href="#加锁机制" class="headerlink" title="加锁机制"></a><strong>加锁机制</strong></h3><p> 某个客户端要加锁。如果该客户端面对的是一个Redis Cluster集群，它首先会根据hash节点选择一台机器，这里注意，仅仅只是选择一台机器。紧接着就会发送一段lua脚本到redis上，lua脚本如下所示：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181559614.jpg" alt="img"></p>
+<p> 使用lua脚本，可以把一大堆业务逻辑通过封装在lua脚本发送给redis，保证这段赋值业务逻辑执行的<strong>原子性</strong>。在这段脚本中，这里**KEYS[1]**代表的是你加锁的那个key，比如说：RLock lock = redisson.getLock(“myLock”);这里你自己设置了加锁的那个锁key就是“myLock”。</p>
+<p> **ARGV[1]<strong>代表的就是锁key的默认生存时间，默认30秒。</strong>ARGV[2]**代表的是加锁的客户端的ID，类似于下面这样：8743c9c0-0795-4907-87fd-6c719a6b4586:1。</p>
+<p> 脚本的意思大概是：第一段if判断语句，就是用“<strong>exists myLock</strong>”命令判断一下，如果你要加锁的那个key不存在，就可以进行加锁。加锁就是用“<strong>hset myLock 8743c9c0-0795-4907-87fd-6c719a6b4586:1 1</strong>”命令。通过这个命令设置一个hash数据结构，这个命令执行后，会出现一个类似下面的数据结构：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181600583.jpg" alt="img"></p>
+<p> 上述就代表“8743c9c0-0795-4907-87fd-6c719a6b4586:1”这个客户端对“myLock”这个锁key完成了加锁。接着会执行“<strong>pexpire myLock 30000</strong>”命令，设置myLock这个锁key的<strong>生存时间是30秒</strong>。好了，到此为止，ok，加锁完成了。</p>
+<h3 id="锁互斥机制"><a href="#锁互斥机制" class="headerlink" title="锁互斥机制"></a><strong>锁互斥机制</strong></h3><p> 如果这个时候客户端B来尝试加锁，执行了同样的一段lua脚本。第一个if判断会执行“exists myLock”，发现myLock这个锁key已经存在。接着第二个if判断，判断myLock锁key的hash数据结构中，是否包含客户端B的ID，但明显没有，那么客户端B会获取到<strong>pttl myLock</strong>返回的一个数字，代表myLock这个锁key的<strong>剩余生存时间</strong>。此时客户端B会进入一个while循环，不听的尝试加锁。</p>
+<h3 id="watch-dog自动延期机制"><a href="#watch-dog自动延期机制" class="headerlink" title="watch dog自动延期机制"></a><strong>watch dog自动延期机制</strong></h3><p> 客户端A加锁的锁key默认生存时间只有30秒，如果超过了30秒，客户端A还想一直持有这把锁，怎么办？其实只要客户端A一旦加锁成功，就会启动一个watch dog看门狗，<strong>它是一个后台线程，会每隔10秒检查一下</strong>，如果客户端A还持有锁key，那么就会不断的延长锁key的生存时间。</p>
+<h3 id="可重入加锁机制"><a href="#可重入加锁机制" class="headerlink" title="可重入加锁机制"></a><strong>可重入加锁机制</strong></h3><p> 客户端A已经持有锁了，然后可重入加锁，如下代码所示：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181600959.jpg" alt="img"></p>
+<p> 这个时候lua脚本是这样执行的：<strong>第一个if判断不成立</strong>，“exists myLock”会显示锁key已经存在了。<strong>第二个if判断会成立</strong>，因为myLock的hash数据结构中包含的那个ID，就是客户端A的ID，此时就会执行可重入加锁的逻辑，它会用“incrby myLock 8743c9c0-0795-4907-87fd-6c71a6b4586:1 1 ”这个命令对客户端A的加锁次数，累加1，此时myLock的数据结构变成下面这样：</p>
+<p><img src="https://personal.lsj1024.cn/img/202204181600545.jpg" alt="img"></p>
+<p> 即myLock的hash数据结构中的那个客户端ID，就对应着加锁的次数。</p>
+<h3 id="释放锁机制"><a href="#释放锁机制" class="headerlink" title="释放锁机制"></a><strong>释放锁机制</strong></h3><p> 执行lock.unlock()，就可以释放分布式锁。释放逻辑是：每次对myLock数据结构中的那个加锁次数减1，如果加锁次数为0了，说明客户端已经不再持有锁了，此时就会用“<strong>del MyLock</strong>”命令，从redis里删除了这个key。然后另外的客户端B就可以尝试完成加锁了。</p>
+<h3 id="上述Redis分布式锁的缺点"><a href="#上述Redis分布式锁的缺点" class="headerlink" title="上述Redis分布式锁的缺点"></a><strong>上述Redis分布式锁的缺点</strong></h3><p> 上面方案的最大问题，就是如果你对某个redis master实例，写入了myLock这种锁key的value，此时会异步复制给对应的master slave实例，但是这个过程中如果发送redis master宕机，主备切换，redis slave变为了redis master。</p>
+<p> 这就会导致客户端B来尝试加锁的时候，在新的redis master上完成了加锁，而客户端A也以为自己成功加了锁，此时就会导致多个客户端对一个分布式锁完成了加锁。这时就会导致各种脏数据的产生。</p>
+<p> 所以这个就是redis cluster，或者是redis master-slave架构的主从异步复制导致的redis分布式锁的最大缺陷：<strong>在redis master实例宕机的时候，可能导致多个客户端同时完成加锁</strong>。</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2022/04/18/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                并发编程
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: '',
+			appKey: '',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2021-<span id="footerYear"></span> 
+	<a href="/">lsj</a> 
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
